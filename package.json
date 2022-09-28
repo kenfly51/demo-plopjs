@@ -23,10 +23,14 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "prepare": "husky install",
-    "lint": "eslint --ext .jsx,.js,.ts,.tsx src --color --max-warnings 0",
-    "lint:fix": "npm run lint -- --fix",
     "prettier": "prettier --check src",
-    "prettier:fix": "prettier --write src"
+    "prettier:fix": "prettier --write src",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{html,js}": [
+      "prettier --write"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -68,6 +72,7 @@
     "@storybook/react": "^6.5.12",
     "@storybook/testing-library": "0.0.13",
     "babel-plugin-named-exports-order": "0.0.2",
+    "eslint-config-prettier": "^8.5.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "plop": "^3.1.1",
